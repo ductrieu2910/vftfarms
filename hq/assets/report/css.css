@@ -1,0 +1,106 @@
+body
+{
+	font-family: Arial,Courier,Verdana;
+	font-size: 10pt;
+}
+.borderLine 
+{
+	border-collapse:collapse;
+	border:none;
+	mso-border-alt:solid #C1C2C3 .5pt;
+ 	mso-yfti-tbllook:480;
+ 	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ 	mso-border-insideh:.5pt solid #C1C2C3;
+	mso-border-insidev:.5pt solid #C1C2C3
+	font-family: Arial,Courier,Verdana;
+	font-size: 10pt;
+}
+.borderLine td {
+ 	border:solid 1.0pt;
+  	mso-border-alt:solid #C1C2C3 .5pt;
+  	height:24px;
+	padding:0in 5.4pt 0in 5.4pt
+	font-family: Arial,Courier,Verdana;
+	font-size: 10pt;
+}
+.title
+{
+	font-family: Arial,Courier,Verdana;
+	font-size:14pt;
+	font-weight:bold;
+	color: #171717;
+}
+.company
+{
+
+}
+.date
+{
+
+}
+.header
+{
+	background-color:#FFFFA8;
+	color:black;
+}
+
+.header1
+{
+	background-color:#F5FEB8;
+	
+}
+
+.text_form_label 
+{
+	font-family: Arial,Courier,Verdana;
+	font-size: 10pt;
+	color: black;
+	font-weight: bold;
+}
+.text_form_content
+{
+	font-family: Arial,Courier,Verdana;
+	font-size: 9pt;
+	color: Black;
+}
+hr
+{
+	height:1px;
+	color: black;
+}
+.warnning
+{
+	font-family: Arial,Courier,Verdana;
+	font-size: 9pt;
+	color:Red;
+}
+.tbl
+{
+	border: 1px solid black;
+}
+p {
+  margin: 1.1pt;
+  font-family: Arial,Courier,Verdana;
+  font-size: 10pt;
+}
+td {
+  
+  font-family: Arial,Courier,Verdana;
+  font-size: 10pt;
+  
+}
+span {
+  margin: 1.1pt;
+  font-family: Arial,Courier,Verdana;
+  font-size: 10pt;
+}
+@page {
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+    margin-left: 3cm;
+    margin-right: 1.5cm;
+}
+.title_cert {
+	
+	font-family: "UTM God's Word", serif;
+}

@@ -1,0 +1,9 @@
+thousands_sep=,
+decimal_point=.
+date_format=YYYY-MM-DD
+addons=addons
+service_url=http://localhost:2020/
+ws_url=ws://127.0.0.1:2021/
+company_id=e741709c-6309-4704-a6dc-e339a8b4bf7f
+session_id=08366aeb-450d-4cca-d22b-4323bba13ac6
+lang_id=vi

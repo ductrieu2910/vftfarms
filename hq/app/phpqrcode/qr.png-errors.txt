@@ -1,0 +1,24 @@
+2023-06-18 11:57:59: <br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2023-06-18 11:58:08: <br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2023-06-18 11:59:33: <br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2023-06-18 11:59:53: <br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Notice</b>:  Trying to access array offset on value of type int in <b>D:\xampp\htdocs\vidu\app\phpqrcode\qrsplit.php</b> on line <b>62</b><br />

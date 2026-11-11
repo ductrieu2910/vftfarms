@@ -1,0 +1,42 @@
+# Config
+config.php
+
+# Environment
+.env
+.env.*
+
+# Dependencies
+/vendor/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets: SSL certs & payment gateway keys
+cert/
+vnpay_php/config.php
+vnpay_php/config - Copy.php
+zalopay/config.json
+
+# Build artifacts
+app.apk
+
+# Runtime data: user uploads, sessions, logs (keep folders via .gitkeep)
+hq/disk/*
+!hq/disk/.gitkeep
+disk/*
+!disk/.gitkeep
+hq/session/*
+!hq/session/.gitkeep
+session/*
+!session/.gitkeep
+log/vnpay/
+*error_log
+*access_log
+
+# Large files (> 100MB GitHub limit)
+assets/VFT1.pdf

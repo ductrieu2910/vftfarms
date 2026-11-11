@@ -1,0 +1,16 @@
+thousands_sep=,
+decimal_point=.
+date_format=
+addons=addons
+service_url=http://service.vidu.vn:2020/
+ws_url=ws://service.vidu.vn:2021/
+company_id=e741709c-6309-4704-a6dc-e339a8b4bf7f
+session_id=94be74b6-23bd-4d21-c545-79bed58544f4
+lang_id=en
+user_id=aa2e0e6c-ee4a-4e1d-88f7-f753c625b284
+user_name=FOSHACHA
+time_format=
+avatar=
+currency_id=23
+root_company_id=
+user_group_id=ADMIN
