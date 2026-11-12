@@ -15,6 +15,12 @@
 	
 	if(strrpos($uri, ".php") !== false)
 	{
+		// Gọi thẳng .../index.php: chuyển về thư mục, vì include lại chính file này sẽ đệ quy vô hạn (lỗi 500)
+		if(realpath(ABSPATH.$uri) === realpath(__FILE__))
+		{
+			header('Location: '.URL.(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] != '' ? '?'.$_SERVER['QUERY_STRING'] : ''));
+			exit();
+		}
 		
 		include(ABSPATH .$uri);
 		exit();

@@ -15,7 +15,15 @@
 		$PARAMS = substr($uri, $index + 1);
 		$uri = substr($uri, 0,$index);
 	}
-	
+
+	// /hq, /delivery (thiếu dấu "/" cuối) là ứng dụng riêng có config.php riêng: chuyển sang /hq/ như Apache tự làm,
+	// nếu không sẽ bị nạp lẫn với config gốc và lỗi 500 trên nginx
+	if($uri != "" && strpos($uri, "/") === false && is_dir(ABSPATH.$uri) && file_exists(ABSPATH.$uri."/config.php"))
+	{
+		header("Location: ".URL.$uri."/".($PARAMS != "" ? "?".$PARAMS : ""), true, 301);
+		exit();
+	}
+
 	// "index.php" chính là file này: include lại sẽ đệ quy vô hạn (lỗi 500) -> cho đi tiếp như trang chủ
 	if(strrpos($uri, ".php") !== false && $uri != "index.php")
 	{
