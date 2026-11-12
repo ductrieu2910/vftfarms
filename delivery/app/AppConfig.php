@@ -9,24 +9,24 @@ class AppConfig
 		$this->path = $path;
 		if(file_exists($path))
 		{
-			$file = fopen($path, 'r');
+			$file = @fopen($path, 'r');
 			if ($file)
 			{
-				while (($line = fgets($file)) !== false) 
+				while (($line = fgets($file)) !== false)
 				{
-					
+
 					$index = strpos($line, '=');
-	
+
 					if($index !== false)
 					{
 						$key = trim(substr($line, 0, $index));
 						$value = trim(substr($line, $index + 1));
-					
+
 						$this->add($key, $value);
 					}
 				}
+				fclose($file);
 			}
-			fclose($file);
 
 		}
 	}
@@ -48,7 +48,13 @@ class AppConfig
 			{
 				
 			}
-			$f=fopen($this->path,'w');
+			// Thư mục session/ không ghi được (sai quyền trên server) thì ghi log thay vì lỗi 500 cả trang
+			$f=@fopen($this->path,'w');
+			if($f === false)
+			{
+				error_log("AppConfig: khong ghi duoc session file ".$this->path." - kiem tra quyen thu muc session/ (chown www:www)");
+				return;
+			}
 			fwrite($f, $s);
 			fclose($f);
 		}
