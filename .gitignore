@@ -40,3 +40,7 @@ log/vnpay/
 
 # Large files (> 100MB GitHub limit)
 assets/VFT1.pdf
+
+# Session của app delivery (không đẩy lên repo public)
+delivery/session/*
+!delivery/session/.gitkeep
