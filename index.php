@@ -16,7 +16,8 @@
 		$uri = substr($uri, 0,$index);
 	}
 	
-	if(strrpos($uri, ".php") !== false)
+	// "index.php" chính là file này: include lại sẽ đệ quy vô hạn (lỗi 500) -> cho đi tiếp như trang chủ
+	if(strrpos($uri, ".php") !== false && $uri != "index.php")
 	{
 		
 		include(ABSPATH .$uri);

@@ -1,4 +1,7 @@
 <?php
+// Khi file này được gọi trực tiếp (vd nginx không rewrite qua index.php gốc) thì tự nạp config
+if (!isset($appSession)) { require_once(dirname(__DIR__) . '/config.php'); }
+
 function findSupplier($appSession,$parent_id, $product_id, $attribute_id, $type_id)
 {
 	$sql = "SELECT d1.product_id, d1.rel_id, d3.receipt_no, d3.receipt_date, d4.code, d4.name FROM stock_product d1 LEFT OUTER JOIN purchase_receive_product d2 ON(d1.rel_id = d2.id) LEFT OUTER JOIN purchase_receive d3 ON(d2.receive_id = d3.id) LEFT OUTER JOIN supplier d4 ON(d3.supplier_id = d4.id) WHERE d1.id='".$parent_id."' AND d1.product_id='".$product_id."'";

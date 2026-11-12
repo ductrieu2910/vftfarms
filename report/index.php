@@ -1,4 +1,7 @@
 <?php
+// Khi file này được gọi trực tiếp (vd nginx không rewrite qua index.php gốc) thì tự nạp config
+if (!isset($appSession)) { require_once(dirname(__DIR__) . '/config.php'); }
+
 	$msg = $appSession->getTier()->createMessage();
 	$msg->add("root_company_id", $appSession->getConfig()->getProperty("root_company_id"));
 	$msg->add("company_id", $appSession->getUserInfo()->getCompanyId());
