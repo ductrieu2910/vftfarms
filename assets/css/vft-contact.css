@@ -1,0 +1,173 @@
+/* Form "Liên hệ mua hàng" — theo màu / font của vftfarms (xanh #59b828, chữ #4b566b, tiêu đề #222d39, font Rubik) */
+
+/* Nút "Liên hệ mua hàng" ở trang chi tiết / popup sản phẩm (thay cho "Mua ngay") */
+.product-details-content .contact-buy {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #c1429b;
+  border: 0;
+  border-radius: 5px;
+  padding: 9px 30px;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1.5;
+  transition: background-color .2s;
+}
+.product-details-content .contact-buy:hover { background-color: #a8357f; color: #fff; }
+.product-details-content .contact-buy i { margin-right: 6px; }
+
+body.vft-ct-locked { overflow: hidden; }
+
+.vft-ct {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* theo màn hình thật, kể cả khi trang bị tràn ngang trên mobile */
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 5000; /* trên modal Bootstrap (1050) và thanh menu dưới trên mobile (3000) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-family: "Rubik", sans-serif;
+  color: #4b566b;
+}
+.vft-ct[hidden] { display: none; }
+
+.vft-ct-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 45, 57, .55);
+  opacity: 0;
+  transition: opacity .25s;
+}
+.vft-ct.is-visible .vft-ct-backdrop { opacity: 1; }
+
+.vft-ct-box {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform .25s, opacity .25s;
+}
+.vft-ct.is-visible .vft-ct-box { transform: none; opacity: 1; }
+
+.vft-ct-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #59b828;
+  color: #fff;
+}
+.vft-ct-head h3 { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.4; color: #fff; }
+.vft-ct-head p { margin: 4px 0 0; font-size: 13px; color: rgba(255, 255, 255, .9); }
+.vft-ct-close {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.vft-ct-close:hover { background: rgba(255, 255, 255, .35); }
+
+.vft-ct-body { padding: 18px 20px 20px; overflow-y: auto; }
+
+.vft-ct-overline { margin: 0 0 10px; font-size: 13px; font-weight: 500; color: #222d39; text-transform: uppercase; letter-spacing: .02em; }
+.vft-ct-card { padding: 14px; margin-bottom: 18px; border: 1px dashed #59b828; border-radius: 8px; background: #f4fbef; }
+.vft-ct-card .vft-ct-btn { width: 100%; }
+
+.vft-ct-form { display: flex; flex-direction: column; gap: 14px; }
+.vft-ct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.vft-ct-field { display: flex; flex-direction: column; gap: 6px; margin: 0; }
+.vft-ct-label { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: #222d39; }
+.vft-ct-label i { color: #59b828; font-size: 13px; }
+.vft-ct-label em { color: #e53935; font-style: normal; }
+.vft-ct-label small { margin-left: auto; font-weight: 400; font-size: 12px; color: #9aa3b1; }
+.vft-ct-field input,
+.vft-ct-field textarea {
+  width: 100%;
+  padding: 9px 12px;
+  font: inherit;
+  font-size: 14px;
+  color: #222d39;
+  background: #fff;
+  border: 1px solid #e1e5ea;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.vft-ct-field textarea { resize: vertical; min-height: 64px; }
+.vft-ct-field input:focus,
+.vft-ct-field textarea:focus { border-color: #59b828; box-shadow: 0 0 0 3px rgba(89, 184, 40, .15); }
+
+.vft-ct-rows { display: flex; flex-direction: column; gap: 10px; padding: 14px; background: #f9f9f9; border-radius: 8px; }
+.vft-ct-rows-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.vft-ct-rows-head small { font-size: 12px; color: #9aa3b1; }
+.vft-ct-row { padding: 12px; background: #fff; border: 1px solid #e9ecef; border-radius: 6px; }
+.vft-ct-row-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 13px; font-weight: 500; color: #222d39; }
+.vft-ct-row-no { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: #59b828; color: #fff; font-size: 12px; }
+.vft-ct-row-remove { margin-left: auto; border: 0; background: none; color: #e53935; font-size: 13px; cursor: pointer; }
+.vft-ct-row-remove:hover { text-decoration: underline; }
+
+.vft-ct-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.vft-ct-btn:disabled { opacity: .7; cursor: not-allowed; }
+.vft-ct-btn-primary { background: #59b828; color: #fff; }
+.vft-ct-btn-primary:hover:not(:disabled) { background: #4a9c20; color: #fff; text-decoration: none; }
+.vft-ct-btn-outline { background: #fff; color: #59b828; border-color: #59b828; }
+.vft-ct-btn-outline:hover { background: #59b828; color: #fff; }
+.vft-ct-btn-soft { align-self: flex-start; padding: 7px 14px; font-size: 13px; text-transform: none; background: #eaf6e3; color: #4a9c20; border: 1px dashed #59b828; }
+.vft-ct-btn-soft:hover { background: #dcefd0; }
+.vft-ct-btn-block { width: 100%; padding: 12px 20px; }
+
+.vft-ct-error { margin: 0; padding: 8px 12px; font-size: 13px; color: #c62828; background: #fdecea; border-radius: 5px; }
+.vft-ct-error[hidden] { display: none; }
+
+.vft-ct-success { text-align: center; padding: 10px 0; }
+.vft-ct-success-icon { width: 64px; height: 64px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #eaf6e3; color: #59b828; font-size: 28px; }
+.vft-ct-code { display: inline-block; margin-bottom: 10px; padding: 3px 12px; font-size: 13px; font-weight: 500; color: #4a9c20; background: #eaf6e3; border-radius: 20px; }
+.vft-ct-success h4 { margin: 0 0 8px; font-size: 20px; font-weight: 500; color: #222d39; }
+.vft-ct-success p { margin: 0 0 18px; font-size: 14px; line-height: 1.6; }
+.vft-ct-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+@media (max-width: 575px) {
+  .vft-ct { padding: 0; align-items: flex-end; }
+  .vft-ct-box { max-height: 92vh; max-height: 92dvh; border-radius: 12px 12px 0 0; }
+  .vft-ct-grid { grid-template-columns: 1fr; }
+  .vft-ct-head h3 { font-size: 16px; }
+  .product-details-content .contact-buy { padding: 9px 18px; }
+}

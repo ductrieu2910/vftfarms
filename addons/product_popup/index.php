@@ -189,15 +189,26 @@ if ($productList->getRowCount() > 0) {
                         </div>
                         <textarea type="text" class="form-controls" id="editdescription" name="editdescription" placeholder="Ghi chú"
                             style="width: 100%;"></textarea>
+                        <?php
+                        // Dữ liệu sản phẩm cho form "Liên hệ mua hàng" (assets/js/vft-contact.js)
+                        $contact_attr = htmlspecialchars(json_encode([
+                            "id" => (string)$price_id,
+                            "code" => (string)$product_code,
+                            "name" => (string)$product_product_name,
+                            "unit" => (string)$product_unit_name,
+                            "spec" => (string)$product_attribute_name,
+                            "priceDisplay" => $product_unit_price > 0 ? $appSession->getCurrency()->format($product_currency_id, $product_unit_price) . ($product_unit_name != "" ? " / " . $product_unit_name : "") : "Liên hệ",
+                        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES), ENT_QUOTES, 'UTF-8');
+                        ?>
                         <div class="d-flex justify-content-end">
 							<?php if($product_unit_in_stock>0)
 										{
 										?>
 							 <a href="javascript:addingProduct('card')" class="buy-now"><?php echo $appSession->getLang()->find("Add to card");?></a>&nbsp;&nbsp;
-                            <a href="javascript:addingProduct('checkout')" class="check-out"><?php echo $appSession->getLang()->find("Buy Now");?></a>
 							<?php
 							}
 							?>
+                            <button type="button" class="contact-buy" data-vft-contact="<?php echo $contact_attr; ?>" data-vft-qty="#qty" data-vft-note="#editdescription" data-vft-source="product_popup"><i class="fas fa-phone-alt"></i>Liên hệ mua hàng</button>
                         </div>
                     </div>
                 </div>

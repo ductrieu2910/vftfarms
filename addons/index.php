@@ -291,7 +291,16 @@ $productList = $sale->productList();
     <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>assets/css/slick-theme.css">
     <link rel="stylesheet" href="<?php echo URL; ?>assets/css/custom-select.css">
     <link rel="stylesheet" href="<?php echo URL; ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/css/vft-contact.css">
 	<script src='<?php echo URL; ?>assets/js/jquery.min.js'></script>
+	<script>
+	window.VFT_CONTACT = <?php echo json_encode([
+		"brand" => "VFT Farms",
+		"hotlineTel" => preg_replace('/[^0-9+]/', '', CONTACT_TEL),
+		"hotlineDisplay" => CONTACT_TEL,
+	], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;
+	</script>
+	<script defer src="<?php echo URL; ?>assets/js/vft-contact.js"></script>
     <script type="text/javascript" src="<?php echo URL; ?>assets/js/controller.js"></script>
     <script type="text/javascript" src="<?php echo URL; ?>assets/js/tool.js"></script>
 	<script type="text/javascript" src="<?php echo URL; ?>assets/js/sha1.js"></script>
