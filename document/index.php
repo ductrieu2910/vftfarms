@@ -409,6 +409,21 @@ else if($ac == "updateName")
 		{
 			$type = $_REQUEST['type'];
 		}
+		// Ảnh không có trong disk/ của site này (vd ảnh sản phẩm thêm trên sanpham.chohaosang.vn):
+		// chuyển trình duyệt sang lấy ảnh đó từ site kia. Đổi/tắt bằng FALLBACK_IMAGE_URL trong config.php ('' = tắt).
+		$fallback = defined('FALLBACK_IMAGE_URL') ? FALLBACK_IMAGE_URL : 'https://sanpham.chohaosang.vn/';
+		$fallback_host = (string)parse_url($fallback, PHP_URL_HOST);
+		$current_host = isset($_SERVER['HTTP_HOST']) ? strtolower(preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST'])) : '';
+		if($fallback != '' && $fallback_host != '' && strtolower($fallback_host) != $current_host && preg_match('/^[0-9a-fA-F-]{36}$/', $id))
+		{
+			$q = array('id' => $id);
+			if($width != '') $q['w'] = $width;
+			if($height != '') $q['h'] = $height;
+			if($type != '') $q['type'] = $type;
+			header('Cache-Control: public, max-age=86400');
+			header('Location: '.rtrim($fallback, '/').'/document/?'.http_build_query($q), true, 302);
+			exit;
+		}
 		if($type == "img" || $height != "" || $width != "")
 		{
 			$local_file = ABSPATH."assets/images/product.png";
