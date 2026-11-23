@@ -358,83 +358,29 @@ if ($productList->getRowCount() > 0) {
 
                                 ?>
                         <div class="swiper-slide">
-                            <div class="product-item" style="height:300px">
-						<?php
-							if($sticker != "")
-							{
-								?>
-							<span   style="transform:rotate(-45deg); background-color:red;color:white;display:inline-block;padding-left:8px;padding-right:8px;text-align:center">
-							<?php echo $sticker;?>
-							</span> 
-							<?php
-							}
-							?>
-                            <div class="product-thumb">
-							<?php if($product_type_name != ""){ ?>
-							<div style="position:absolute;right: 4px; font-size:10px"><?php echo $product_type_name;?></div>
-							<?php } ?>
-                                <a href="<?php echo URL; ?><?php echo  $appSession->getTool()->validUrl($name); ?>/p-<?php echo $price_id;?>"><img
-                                        src="<?php echo IMAGE_URL; ?>document/?id=<?php echo $document_id; ?>&h=230"
-                                        alt="<?php echo $name;?>"></a>
-                                <?php
-                                    if ($old_price != 0) {
-                                        $p = -100;
-                                        if ($unit_price != 0) {
-                                            $p = $old_price - $unit_price;
-                                            $p = ($p / $old_price) * 100;
-                                        }
-
-                                    ?>
-                                <span class="batch sale"><?php echo intval($p); ?>%</span>
-                                <?php
-                                    }
-                                    ?>
-
-										
-				
-                                </a>
-                            </div>
-                            <div class="product-content">
-                                <h6><a href="<?php echo URL; ?><?php echo  $appSession->getTool()->validUrl($name); ?>/p-<?php echo $price_id;?>""
-                                        class="product-title"><?php echo $name ?></a>
-                                </h6>
-								
-								<?php
-									 if($attribute_category_name != "")
-									 {
-									?>
-									 <p class="quantity"><?php echo $attribute_category_name;?> : <?php echo $attribute_name;?></p>
-									 <?php
-									 }
-									 ?>
-									 
-                                 <p class="quantity"><?php echo $appSession->getLang()->find("Stock");?> : <?php if ( $unit_in_stock == 0) {
-									echo $appSession->getLang()->find("Out of stock");
-								} else {
-									echo $unit_in_stock;
-								}  ?></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price">
-                                       <?php echo $appSession->getCurrency()->format($currency_id, $appSession->getTool()->toDouble($unit_price)); ?>
-                                             / <?php echo $unit_name ?>
-                                    </div>
-										<?php if($unit_in_stock>0)
-										{
-										?>
-											<a
-                                             href="javascript:addProduct('<?php echo $product_id; ?>', '<?php echo $currency_id; ?>', '<?php echo $unit_id; ?>', '<?php echo $attribute_id; ?>', 1, <?php echo $unit_price; ?>, '<?php echo $second_unit_id; ?>', <?php echo $factor; ?>, '', '<?php $company_id;?>', '<?php echo $price_id;?>','<?php echo $type_id;?>', function(status, message){ loadCard(); })">
-                                             <span class="cart-btn"><i class="fas fa-shopping-cart"></i><?php echo $appSession->getLang()->find("Add");?></span>
-
-                                         </a>
-										 <?php
-										}
-										?>
-										 
-                                    </a>
-                                </div>
-								 
-                            </div>
-                        </div>
+                            <?php vft_product_card($appSession, $dt_category, [
+                                "product_id" => $product_id,
+                                "price_id" => $price_id,
+                                "code" => $code,
+                                "name" => $name,
+                                "document_id" => $document_id,
+                                "unit_price" => $unit_price,
+                                "old_price" => $old_price,
+                                "currency_id" => $currency_id,
+                                "unit_id" => $unit_id,
+                                "unit_name" => $unit_name,
+                                "attribute_id" => $attribute_id,
+                                "attribute_name" => $attribute_name,
+                                "attribute_category_name" => $attribute_category_name,
+                                "type_id" => $type_id,
+                                "type_name" => $product_type_name,
+                                "sticker" => $sticker,
+                                "unit_in_stock" => $unit_in_stock,
+                                "second_unit_id" => $second_unit_id,
+                                "factor" => $factor,
+                                "company_id" => $company_id,
+                                "category_id" => $productList->getString($i, "category_id"),
+                            ]); ?>
                         </div>
 
                         <?php

@@ -1,0 +1,286 @@
+/* Thẻ sản phẩm (app/ProductCard.php) — bố cục giống sanpham.chohaosang.vn, màu / font theo vftfarms
+   (xanh #59b828, xanh đậm #438e1c, chữ #4b566b, tiêu đề #222d39, font Rubik). */
+
+.product-list > [class*="col-"] {
+  display: flex;
+  margin-bottom: 30px;
+}
+.product-list > [class*="col-"] > .vft-card,
+.page-content .product-list .vft-card {
+  margin-bottom: 0;
+}
+
+.product-item.vft-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid #e8eaee;
+  border-radius: 12px;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.product-item.vft-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(89, 184, 40, .45);
+  box-shadow: 0 10px 24px rgba(34, 45, 57, .08);
+}
+
+/* ---------- Ảnh ---------- */
+.vft-card .vft-card-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  text-align: center;
+}
+.vft-card .vft-card-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.vft-card .vft-card-img img {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  object-fit: contain;
+  transition: transform .4s ease;
+}
+.vft-card:hover .vft-card-img img {
+  transform: scale(1.05);
+}
+
+.vft-card .vft-card-sticker,
+.vft-card .vft-card-type {
+  position: absolute;
+  top: 12px;
+  z-index: 2;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #fff;
+}
+.vft-card .vft-card-sticker {
+  left: 12px;
+  background-color: #f68501;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+.vft-card .vft-card-sticker.is-sale {
+  background-color: #e5383b;
+}
+.vft-card .vft-card-type {
+  right: 12px;
+  background-color: rgba(34, 45, 57, .8);
+}
+.vft-card .vft-card-wish {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #f6f8fa;
+  color: #bbbbc1;
+  transition: color .2s, background-color .2s;
+}
+.vft-card .vft-card-wish:hover {
+  background-color: #fff0f0;
+  color: #f55050;
+}
+
+/* ---------- Nội dung ---------- */
+.product-item.vft-card .vft-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 18px 18px;
+}
+.vft-card .vft-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 22px;
+}
+.vft-card .vft-card-group {
+  min-width: 0;
+  overflow: hidden;
+  color: #9aa1ad;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vft-card .vft-card-stock {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border: 1px solid rgba(89, 184, 40, .3);
+  border-radius: 999px;
+  background-color: #f1f9ec;
+  color: #438e1c;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.vft-card .vft-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #59b828;
+}
+.vft-card .vft-card-stock.is-out {
+  border-color: rgba(229, 56, 59, .3);
+  background-color: #fff1f1;
+  color: #d62f32;
+}
+.vft-card .vft-card-stock.is-out .vft-card-dot {
+  background-color: #e5383b;
+}
+
+.product-item.vft-card .vft-card-name {
+  margin: 8px 0 0;
+}
+.product-item.vft-card .vft-card-name .product-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: 2.7em;
+  overflow: hidden;
+  color: #222d39;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.product-item.vft-card .vft-card-name .product-title:hover {
+  color: #59b828;
+}
+
+.vft-card .vft-card-price {
+  margin: 10px 0 14px;
+  color: #59b828;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+.vft-card .vft-card-unit {
+  font-size: 15px;
+  font-weight: 500;
+}
+.vft-card .vft-card-price del {
+  display: inline-block;
+  margin-left: 6px;
+  color: #bbbbc1;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* ---------- Nút ---------- */
+.vft-card .vft-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #f2f2f2;
+}
+.vft-card .vft-card-cart,
+.vft-card .vft-card-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  border-radius: 999px;
+  font-family: "Rubik", sans-serif;
+  cursor: pointer;
+  transition: background-color .2s, color .2s, border-color .2s, transform .15s;
+}
+.vft-card .vft-card-cart {
+  flex-shrink: 0;
+  width: 42px;
+  border: 1px solid #e8eaee;
+  background-color: #f6f8fa;
+  color: #4b566b;
+  font-size: 15px;
+}
+.vft-card .vft-card-cart:hover {
+  border-color: #59b828;
+  background-color: #59b828;
+  color: #fff;
+}
+.vft-card .vft-card-cart:active {
+  transform: scale(.88);
+}
+.vft-card .vft-card-contact {
+  flex: 1;
+  gap: 7px;
+  min-width: 0;
+  padding: 0 12px;
+  border: 0;
+  background-color: #59b828;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(89, 184, 40, .25);
+}
+.vft-card .vft-card-contact:hover {
+  background-color: #438e1c;
+  color: #fff;
+}
+.vft-card .vft-card-contact:active {
+  transform: scale(.98);
+}
+.vft-card .vft-card-contact:focus {
+  outline: none;
+}
+.vft-card .vft-card-contact:focus-visible,
+.vft-card .vft-card-cart:focus-visible {
+  outline: 2px solid #438e1c;
+  outline-offset: 2px;
+}
+.vft-card .vft-card-contact.is-out {
+  background-color: #f68501;
+  box-shadow: 0 2px 6px rgba(246, 133, 1, .25);
+}
+.vft-card .vft-card-contact.is-out:hover {
+  background-color: #d97400;
+}
+.vft-card .vft-card-short {
+  display: none;
+}
+
+/* Thẻ hẹp: rút gọn chữ nút */
+@media (min-width: 1200px) {
+  .col-xl-3 .vft-card .vft-card-contact,
+  .swiper-slide .vft-card .vft-card-contact {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1199px) and (min-width: 992px) {
+  .col-lg-9 .col-sm-6 .vft-card .vft-card-long { display: none; }
+  .col-lg-9 .col-sm-6 .vft-card .vft-card-short { display: inline; }
+}
+@media (max-width: 575px) {
+  .product-item.vft-card .vft-card-body { padding: 14px 14px 16px; }
+  .product-item.vft-card .vft-card-name .product-title { font-size: 16px; }
+  .vft-card .vft-card-price { font-size: 19px; }
+}
+@media (max-width: 380px) {
+  .vft-card .vft-card-long { display: none; }
+  .vft-card .vft-card-short { display: inline; }
+}

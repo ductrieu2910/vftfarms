@@ -82,7 +82,7 @@ class Product
 	function productByGroupById($appSession, $id,  $limit)
 	{
 		$productList = null;
-		$sql = "SELECT d1.id, d5.unit_id, d5.attribute_id,	d5.type_id, d1.code, d1.name, lg.description AS name_lg, d2.document_id, d5.unit_price, d5.old_price, d6.name AS unit_name, d5.currency_id";
+		$sql = "SELECT d1.id, d1.category_id, d5.unit_id, d5.attribute_id,	d5.type_id, d1.code, d1.name, lg.description AS name_lg, d2.document_id, d5.unit_price, d5.old_price, d6.name AS unit_name, d5.currency_id";
 		$sql = $sql.", d9.name AS attribute_name, d10.name attribute_category_name, d5.factor"; 
 		$sql = $sql.", d5.company_id, d7.commercial_name, d7.name AS company_name, d5.id AS price_id, d8.document_id AS price_document_id, d5.description, d11.name AS type_name, 0.0 AS unit_in_stock, d12.name AS sticker";
 		$sql = $sql." FROM product_group_product m LEFT OUTER JOIN product d1 ON(m.product_id = d1.id)";
@@ -242,7 +242,7 @@ class Product
 	function productRel($appSession, $id)
 	{
 		$productList = null;
-		$sql = "SELECT d1.id, d5.unit_id, d5.attribute_id,	d5.type_id, d1.code, d1.name, lg.description AS name_lg, d2.document_id, d5.unit_price, d5.old_price, d6.name AS unit_name, d5.currency_id";
+		$sql = "SELECT d1.id, d1.category_id, d5.unit_id, d5.attribute_id,	d5.type_id, d1.code, d1.name, lg.description AS name_lg, d2.document_id, d5.unit_price, d5.old_price, d6.name AS unit_name, d5.currency_id";
 		$sql = $sql.", d9.name AS attribute_name, d10.name attribute_category_name, d5.factor"; 
 		$sql = $sql.", d5.company_id, d7.commercial_name, d7.name AS company_name, d5.id AS price_id, d8.document_id AS price_document_id, d5.description, d11.name AS type_name, 0.0 AS unit_in_stock";
 		$sql = $sql." FROM product_rel m LEFT OUTER JOIN product d1 ON(m.product_id = d1.id)";

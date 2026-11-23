@@ -1,5 +1,6 @@
 <?php
 require_once(ABSPATH . 'api/Product.php');
+require_once(ABSPATH . 'app/ProductCard.php');
 
 
 $page = "home";
@@ -292,6 +293,7 @@ $productList = $sale->productList();
     <link rel="stylesheet" href="<?php echo URL; ?>assets/css/custom-select.css">
     <link rel="stylesheet" href="<?php echo URL; ?>assets/css/style.css">
     <link rel="stylesheet" href="<?php echo URL; ?>assets/css/vft-contact.css">
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/css/vft-card.css">
 	<script src='<?php echo URL; ?>assets/js/jquery.min.js'></script>
 	<script>
 	window.VFT_CONTACT = <?php echo json_encode([
