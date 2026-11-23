@@ -28,6 +28,7 @@ if ($uri != '/' && $uri != '') {
 	}
 }
 $search = "";
+$page_number = 1; // trang hiện tại của danh sách sản phẩm (?page=N)
 $arr = $appSession->getTool()->split($PARAMS, '&');
 
 for($i =0; $i<count($arr); $i++)
@@ -42,7 +43,11 @@ for($i =0; $i<count($arr); $i++)
 		if($k == "search")
 		{
 			$search = $v;
-			
+
+		}
+		else if($k == "page")
+		{
+			$page_number = max(1, intval($v));
 		}
 	}
 }

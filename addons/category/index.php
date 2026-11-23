@@ -59,6 +59,10 @@ $msg->add("query", $sql1);
 
 $productList = $appSession->getTier()->getTable($msg);
 
+// Phân trang: 12 sản phẩm / trang (cắt trước khi đếm tồn kho để chỉ truy vấn sản phẩm của trang này)
+require_once(ABSPATH . 'app/Pagination.php');
+list($page_number, $total_pages) = paginateTable($productList, $page_number);
+
 $product = new Product($appSession);
 
 $productList = $product->countProduct($productList);
@@ -338,7 +342,7 @@ $productList = $product->countProduct($productList);
                     ?>
 
                     <div class="col-12 text-center mt-4">
-                        
+                        <?php renderPagination($page_number, $total_pages); ?>
                     </div>
                 </div>
             </div>

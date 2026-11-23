@@ -2,6 +2,10 @@
 require_once(ABSPATH . 'api/Product.php');
 $dt = $product->productGroupApp();
 $productList = $product->productByGroupById($appSession, $selected_id, -1);
+
+// Phân trang: 12 sản phẩm / trang
+require_once(ABSPATH . 'app/Pagination.php');
+list($page_number, $total_pages) = paginateTable($productList, $page_number);
 ?>
 <!-- page-header-section start -->
 <div class="page-header-section">
@@ -239,7 +243,7 @@ $productList = $product->productByGroupById($appSession, $selected_id, -1);
                     ?>
 
                     <div class="col-12 text-center mt-4">
-                        
+                        <?php renderPagination($page_number, $total_pages); ?>
                     </div>
                 </div>
             </div>
