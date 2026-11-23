@@ -35,6 +35,8 @@ hq/session/*
 session/*
 !session/.gitkeep
 log/vnpay/
+# Cache danh sách tài liệu do document/index.php tự tạo, mỗi server một bản
+log/doc.txt
 *error_log
 *access_log
 
